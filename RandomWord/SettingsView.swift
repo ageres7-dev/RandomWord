@@ -37,9 +37,15 @@ struct SettingsView: View {
             Form {
                 Section {
                     HStack {
-                        Text("Min:")
+                        Text("From:")
                         
-                        TextField("Min", value: $minNumber, format: .number )
+                        TextField("Start number", value: $minNumber, format: .number )
+                            .onReceive(NotificationCenter.default.publisher(for: UITextField.textDidBeginEditingNotification)) { obj in
+                                if let textField = obj.object as? UITextField {
+                                    textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+                                }
+                            }
+                            .multilineTextAlignment(.trailing)
                             .keyboardType(.numberPad)
                             .focused($focusedField, equals: .minNumber)
                             .onSubmit {
@@ -47,8 +53,14 @@ struct SettingsView: View {
                             }
                     }
                     HStack {
-                        Text("Max:")
-                        TextField("Max", value: $maxNumber, format: .number)
+                        Text("To:")
+                        TextField("End number", value: $maxNumber, format: .number)
+                            .onReceive(NotificationCenter.default.publisher(for: UITextField.textDidBeginEditingNotification)) { obj in
+                                if let textField = obj.object as? UITextField {
+                                    textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+                                }
+                            }
+                            .multilineTextAlignment(.trailing)
                             .keyboardType(.numberPad)
                             .focused($focusedField, equals: .maxNumber)
                             .onSubmit {
@@ -60,22 +72,13 @@ struct SettingsView: View {
                 }
                 
                 Section {
-//                    HStack {
-                        TextField("New word...", text: $newWord)
-                            .focused($focusedField, equals: .newWord)
-                            .submitLabel(.next)
-                            .onSubmit {
-                                focusedField = .newWord
-                                saveNewWord()
-                            }
-//                        if newWord.count > 0 {
-//                            Button(action: saveNewWord) {
-//                                Image(systemName: "plus.circle.fill")
-//                                    .foregroundColor(.green)
-//                                    .imageScale(.large)
-//                            }
-//                        }
-//                    }.animation(.default, value: newWord)
+                    TextField("New word...", text: $newWord)
+                        .focused($focusedField, equals: .newWord)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .newWord
+                            saveNewWord()
+                        }
                 } header: {
                     Text("Add new word")
                 }
@@ -89,7 +92,6 @@ struct SettingsView: View {
                         Text("All word")
                     }
                 }
-                
             }
             .onAppear {
                 setNumbersFromDatastore()
@@ -110,12 +112,13 @@ struct SettingsView: View {
                         switch focusedField {
                         case .maxNumber, .minNumber:
                             handleChangeNumbers()
+                            focusedField = nil
                         case .newWord:
                             saveNewWord()
+                            focusedField = nil
                         case .none:
                             return
                         }
-                        focusedField = nil
                     }
                 }
             }
@@ -158,20 +161,12 @@ extension SettingsView {
     }
     
     private func handleChangeNumbers() {
-        withAnimation {
-            if minNumber > maxNumber {
-                let maxNumberTemp = maxNumber
-                maxNumber = minNumber
-                minNumber = maxNumberTemp
-            }
-            
-            if let numberRange = numberRanges.first {
-                numberRange.min = minNumber
-                numberRange.max = maxNumber
-                try? moc.save()
-            } else {
-                createNewNumberRange()
-            }
+        if let numberRange = numberRanges.first {
+            numberRange.min = minNumber
+            numberRange.max = maxNumber
+            try? moc.save()
+        } else {
+            createNewNumberRange()
         }
     }
     

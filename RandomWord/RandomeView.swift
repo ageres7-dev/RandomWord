@@ -35,11 +35,16 @@ struct RandomeView: View {
     var body: some View {
         NavigationView {
             Form {
-                
                 Section {
                     Button {
-                        guard let randomNumber = (minNumber...maxNumber).randomElement() else { return }
+                        let range = minNumber < maxNumber
+                        ? (minNumber...maxNumber)
+                        : (maxNumber...minNumber)
+                        
+                        guard let randomNumber = range.randomElement() else { return }
                         self.randomNumber = String(randomNumber)
+                        let generator = UISelectionFeedbackGenerator()
+                        generator.selectionChanged()
                     } label: {
                         HStack {
                             Spacer()
@@ -62,6 +67,8 @@ struct RandomeView: View {
                             generator.notificationOccurred(.error)
                         } else if let word = words.randomElement()?.text {
                             randomWord = word
+                            let generator = UISelectionFeedbackGenerator()
+                            generator.selectionChanged()
                         }
                         
                     } label: {
