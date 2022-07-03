@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct RandomWordApp: App {
+    @StateObject private var dataController = DataController()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StartTabView()
+                .environment(\.managedObjectContext, dataController.container.viewContext )
         }
     }
 }

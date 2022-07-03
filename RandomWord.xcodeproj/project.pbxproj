@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		3B445A492870C48E003EBCDA /* RandomWordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B445A482870C48E003EBCDA /* RandomWordApp.swift */; };
-		3B445A4B2870C48E003EBCDA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B445A4A2870C48E003EBCDA /* ContentView.swift */; };
+		3B445A4B2870C48E003EBCDA /* StartTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B445A4A2870C48E003EBCDA /* StartTabView.swift */; };
 		3B445A4D2870C48F003EBCDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B445A4C2870C48F003EBCDA /* Assets.xcassets */; };
 		3B445A502870C48F003EBCDA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B445A4F2870C48F003EBCDA /* Preview Assets.xcassets */; };
+		3B445A7A2870CECA003EBCDA /* RandomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B445A792870CECA003EBCDA /* RandomeView.swift */; };
+		3B445A7C2870CEE2003EBCDA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B445A7B2870CEE2003EBCDA /* SettingsView.swift */; };
+		3B445A822870D5EF003EBCDA /* RandomWord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B445A802870D5EF003EBCDA /* RandomWord.xcdatamodeld */; };
+		3B445A852870D88E003EBCDA /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B445A842870D88E003EBCDA /* DataController.swift */; };
+		3B7591832870F8A300744C98 /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7591822870F8A300744C98 /* FilteredList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B445A452870C48E003EBCDA /* RandomWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B445A452870C48E003EBCDA /* Random word.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Random word.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B445A482870C48E003EBCDA /* RandomWordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordApp.swift; sourceTree = "<group>"; };
-		3B445A4A2870C48E003EBCDA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B445A4A2870C48E003EBCDA /* StartTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabView.swift; sourceTree = "<group>"; };
 		3B445A4C2870C48F003EBCDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B445A4F2870C48F003EBCDA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3B445A792870CECA003EBCDA /* RandomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomeView.swift; sourceTree = "<group>"; };
+		3B445A7B2870CEE2003EBCDA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3B445A812870D5EF003EBCDA /* RandomWord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RandomWord.xcdatamodel; sourceTree = "<group>"; };
+		3B445A842870D88E003EBCDA /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		3B7591822870F8A300744C98 /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +53,7 @@
 		3B445A462870C48E003EBCDA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B445A452870C48E003EBCDA /* RandomWord.app */,
+				3B445A452870C48E003EBCDA /* Random word.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,7 +62,11 @@
 			isa = PBXGroup;
 			children = (
 				3B445A482870C48E003EBCDA /* RandomWordApp.swift */,
-				3B445A4A2870C48E003EBCDA /* ContentView.swift */,
+				3B445A4A2870C48E003EBCDA /* StartTabView.swift */,
+				3B445A792870CECA003EBCDA /* RandomeView.swift */,
+				3B445A7B2870CEE2003EBCDA /* SettingsView.swift */,
+				3B7591822870F8A300744C98 /* FilteredList.swift */,
+				3B445A832870D866003EBCDA /* Datastore */,
 				3B445A4C2870C48F003EBCDA /* Assets.xcassets */,
 				3B445A4E2870C48F003EBCDA /* Preview Content */,
 			);
@@ -65,6 +79,15 @@
 				3B445A4F2870C48F003EBCDA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3B445A832870D866003EBCDA /* Datastore */ = {
+			isa = PBXGroup;
+			children = (
+				3B445A802870D5EF003EBCDA /* RandomWord.xcdatamodeld */,
+				3B445A842870D88E003EBCDA /* DataController.swift */,
+			);
+			path = Datastore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,7 +107,7 @@
 			);
 			name = RandomWord;
 			productName = RandomWord;
-			productReference = 3B445A452870C48E003EBCDA /* RandomWord.app */;
+			productReference = 3B445A452870C48E003EBCDA /* Random word.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -137,8 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B445A4B2870C48E003EBCDA /* ContentView.swift in Sources */,
+				3B445A4B2870C48E003EBCDA /* StartTabView.swift in Sources */,
+				3B445A852870D88E003EBCDA /* DataController.swift in Sources */,
+				3B445A7C2870CEE2003EBCDA /* SettingsView.swift in Sources */,
+				3B445A7A2870CECA003EBCDA /* RandomeView.swift in Sources */,
+				3B445A822870D5EF003EBCDA /* RandomWord.xcdatamodeld in Sources */,
 				3B445A492870C48E003EBCDA /* RandomWordApp.swift in Sources */,
+				3B7591832870F8A300744C98 /* FilteredList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,13 +303,14 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.ageres7.RandomWord;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Random word";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -304,13 +333,14 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.ageres7.RandomWord;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Random word";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,6 +369,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3B445A802870D5EF003EBCDA /* RandomWord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3B445A812870D5EF003EBCDA /* RandomWord.xcdatamodel */,
+			);
+			currentVersion = 3B445A812870D5EF003EBCDA /* RandomWord.xcdatamodel */;
+			path = RandomWord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3B445A3D2870C48E003EBCDA /* Project object */;
 }
